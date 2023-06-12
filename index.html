@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Fractal Mandelbrot</title>
+
+    <style>html{background-color: #C0C0C0;}</style>
+
+    <meta name="theme-color" content="#000000">
+
+    <link type="text/css" rel="stylesheet" href="app/app.css" media="screen" charset="utf-8">
+
+  </head>
+  <body>
+
+    <div id="launch-page">
+
+      <img src="./imgs/clear-green-only-64colors-2000px.png" id="fractal-background" />
+
+      <main class="clear-fix">
+        <a id="launch-fractal">
+          <div id="fractal-title">Fractal Mandelbrot</div>
+          <div id="launch-text" class="link">Apasa pentru a acces fractalii!</div>
+        </a>
+        <a
+          id="credit-line"
+          href="#"
+          target="_blank"
+          >Proiect realizat de<br> <span class="link">Trifan Razvan</span>
+        </a>
+      </main>
+
+      <div id="launch-detailed-fractal" style="display: none !important;">
+        launch higher escape time fractal -
+        <a id="448-escape-time" class="link">448</a>
+         -
+        <a id="896-escape-time" class="link">896</a>
+         -
+        <a id="1792-escape-time" class="link">1792</a>
+         - slow!
+      </div>
+    </div>
+
+    <div id="fractal-graphics">
+      <canvas id="fractal-canvas"></canvas>
+      <div id="loading-fractal">
+        <div id="loading-frac-text">
+          <div id="loading-frac-title">Se incarca...</div>
+          <div id="zoom-in-info">Click pentru zoom in</div>
+          <div id="zoom-out-info" style="display: none !important;">option-click to zoom out</div>
+          <div id="reset-info">Shift+click pentru a reseta</div>
+          <div id="exit-info">Esc pentru a iesi</div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="app/fractal.js">fractal</script>
+    <script type="text/javascript" src="app/app.js">app</script>
+    <script type="text/javascript">
+      (function() {
+        'use-strict';
+        function startApp(){
+          window.mandelbrotFractal.runningApp = new mandelbrotFractal.App();
+          document.removeEventListener("DOMContentLoaded", startApp);
+        }
+        document.addEventListener("DOMContentLoaded", startApp);
+      }())
+    </script>
+
+  </body>
+</html>
